@@ -1,0 +1,20 @@
+{
+  "name": "amd-boilerplate",
+  "version": "0.0.0",
+  "description": "An AMD boilerplate for JavaScript web applications with tests, dependency management and a build process",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davewalk/amd-boilerplate.git"
+  },
+  "keywords": [
+    "amd",
+    "boilerplate"
+  ],
+  "author": "davewalk",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
