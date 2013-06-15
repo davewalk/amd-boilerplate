@@ -14,6 +14,11 @@ Now you're ready to install all of the vendor libraries defined in the `bower.js
 
     bower install
 
+For the build you'll need to install `requirejs` through npm:
+
+    npm install
+
+
 You can use `boilerplate.js` to quickly setup create new Backbone components.
 
 ## TODO

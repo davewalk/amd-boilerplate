@@ -16,5 +16,8 @@
   ],
   "author": "davewalk",
   "license": "MIT",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "requirejs": "~2.1.6"
+  }
 }
