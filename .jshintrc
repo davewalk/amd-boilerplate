@@ -1,0 +1,27 @@
+{
+	"bitwise": false,
+	"camelcase": true,
+	"curly": true,
+	"eqeqeq": true,
+	"es3": true,
+	"forin": true,
+	"immed": false,
+	"indent": false,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"plusplus": true,
+	"quotmark": "single",
+	"undef": true,
+	"unused": false,
+	"strict": false,
+	"trailing": true,
+	"predef": [
+		"define",
+		"require",
+		"module",
+		"requirejs"
+	]
+}

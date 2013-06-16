@@ -10,18 +10,27 @@ module.exports = function (grunt) {
 					keepalive: true,
 					base: 'app/'
 				}
-			}			
+			}
 		},
 		open: {
 			dev: {
 				path: 'http://localhost:<%= connect.server.options.port %>'
+			}
+		},
+		jshint: {
+			all: ['Gruntfile.js', 'app/scripts/*.js', 'app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'],
+			options: {
+				jshintrc: '.jshintrc'
 			}
 		}
 	});
 
 	grunt.registerTask('server', ['open:dev','connect']);
 
+	grunt.registerTask('test', ['jshint']);
+
 	grunt.loadNpmTasks('grunt-open');
-	grunt.loadNpmTasks('grunt-contrib-watch');	
-	grunt.loadNpmTasks('grunt-contrib-connect');	
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 };
