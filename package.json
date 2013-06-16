@@ -18,6 +18,8 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "requirejs": "~2.1.6"
+    "requirejs": "~2.1.6",
+    "grunt-cli": "~0.1.9",
+    "grunt": "~0.4.1"
   }
 }
