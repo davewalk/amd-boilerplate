@@ -18,10 +18,19 @@
 	"unused": false,
 	"strict": false,
 	"trailing": true,
+	"scripturl": true,
 	"predef": [
 		"define",
 		"require",
 		"module",
-		"requirejs"
+		"requirejs",
+		"window",
+		"mocha",
+		"mochaPhantomJS",
+		"describe",
+		"it",
+		"console",
+		"expect",
+		"assert"
 	]
 }

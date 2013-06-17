@@ -18,18 +18,29 @@ module.exports = function (grunt) {
 			}
 		},
 		jshint: {
-			all: ['Gruntfile.js', 'app/scripts/*.js', 'app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'],
+			all: ['Gruntfile.js', 'app/scripts/*.js', 'app/scripts/**/*.js', 'test/*.js', '!app/scripts/vendor/**/*.js'],
 			options: {
 				jshintrc: '.jshintrc'
+			}
+		},
+		mocha: {
+			dev: {
+				src: ['testrunner.html'],
+				run: false,
+				options: {
+					log: true,
+					reporter: 'Spec'
+				}
 			}
 		}
 	});
 
 	grunt.registerTask('server', ['open:dev','connect']);
-
-	grunt.registerTask('test', ['jshint']);
+	grunt.registerTask('test', ['jshint','mocha:dev']);
 
 	grunt.loadNpmTasks('grunt-open');
+	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('grunt-mocha');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
