@@ -66,7 +66,7 @@ module.exports = function (grunt) {
 		},
 		shell: {
 			hooks: {
-				command: 'cp git-hooks/pre-commit .git/hooks/'
+				command: 'cp git-hooks/pre-commit.sh .git/hooks/'
 			}
 		},
 		s3: {
