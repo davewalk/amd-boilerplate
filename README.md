@@ -30,5 +30,4 @@ There are a few Grunt tasks ready to go:
 
 ## TODO
 * Build process (`r.js`, minification)
-* Add live reload
 * Add [SASS](http://sass-lang.com/) compilation with Compass and Watch
