@@ -30,6 +30,7 @@
     "grunt-shell": "~0.2.2",
     "mocha": "~1.8.2",
     "grunt-lib-phantomjs": "~0.3.1",
-    "grunt-mocha": "~0.3.4"
+    "grunt-mocha": "~0.3.4",
+    "grunt-s3": "~0.2.0-alpha.2"
   }
 }

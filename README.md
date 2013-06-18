@@ -14,19 +14,21 @@ Now you're ready to install all of the vendor libraries defined in the `bower.js
 
     bower install
 
-For the build you'll need to install `requirejs` through npm:
+You can install all of the server-side modules with:
 
     npm install
 
-You can use `boilerplate.js` to quickly create new Backbone components.
+Then you can use `boilerplate.js` to quickly create new Backbone components.
+
+To upload your assets to an Amazon S3 bucket you'll need to pass your credentials. Rename `aws_sample.json` to `aws.json` and add your `key`, `secret` and `bucket`
 
 There are a few Grunt tasks ready to go:
 
 * `grunt test` will run [JS Hint](http://www.jshint.com) on your JavaScript files then run the Mocha tests in the `test-boilerplate.js` file.
 * `grunt server` will a connect server on `9000` and open the URL in your favorite browser. The unit tests are at `http://localhost:9000/testrunner.html`
+* `grunt deploy` uploads your static assets to an Amazon S3 bucket
 
 ## TODO
 * Build process (`r.js`, minification)
-* Upload to S3 Grunt task
 * Add live reload
 * Add [SASS](http://sass-lang.com/) compilation with Compass and Watch
