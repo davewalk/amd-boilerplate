@@ -1,25 +1,52 @@
+var LIVERELOAD_PORT = 35729;
+var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
+var mountFolder = function (connect, dir) {
+    return connect.static(require('path').resolve(dir));
+};
+
 module.exports = function (grunt) {
-	// Project configuration
+	
+	var appConfig = {
+		dev: 'app',
+		prod: 'dist'
+	};
+
 	grunt.initConfig({
+		app: appConfig,
 		aws: grunt.file.readJSON('aws.json'),
 		pkg: grunt.file.readJSON('package.json'),
 		port: 9000,
 		connect: {
-			server: {
+			options: {
+                port: 9000,
+                hostname: 'localhost'
+            },
+			livereload: {
+                options: {
+                    middleware: function (connect) {
+                        return [
+                            lrSnippet,
+                            mountFolder(connect, 'app')
+                        ];
+                    }
+                }
+            },
+		},
+		watch: {
+			livereload: {
 				options: {
-					port: 9000,
-					keepalive: true,
-					base: 'app/'
-				}
+					livereload: 35729
+				},
+				files: ['<%= app.dev %>/*', '<%= app.dev %>/scripts/**/*', '<%= app.dev %>/styles/*.css']
 			}
 		},
 		open: {
 			dev: {
-				path: 'http://localhost:<%= connect.server.options.port %>'
+				path: 'http://localhost:<%= connect.options.port %>'
 			}
 		},
 		jshint: {
-			all: ['Gruntfile.js', 'app/scripts/*.js', 'app/scripts/**/*.js', 'test/*.js', '!app/scripts/vendor/**/*.js'],
+			all: ['Gruntfile.js', '<%= app.dev %>/scripts/*.js', '<%= app.dev %>/scripts/**/*.js', 'test/*.js', '!<%= app.dev %>/scripts/vendor/**/*.js'],
 			options: {
 				jshintrc: '.jshintrc'
 			}
@@ -44,54 +71,54 @@ module.exports = function (grunt) {
 			prod: {
 				upload: [
 					{
-						src: 'app/scripts/collections/*',
+						src: '<%= app.dev %>/scripts/collections/*',
 						dest: 'scripts/collections'
 					},
 					{
-						src: 'app/scripts/models/*',
+						src: '<%= app.dev %>/scripts/models/*',
 						dest: 'scripts/models'
 					},
 					{
-						src: 'app/scripts/templates/*',
+						src: '<%= app.dev %>/scripts/templates/*',
 						dest: 'scripts/templates'
 					},
 					{
-						src: 'app/scripts/views/*',
+						src: '<%= app.dev %>/scripts/views/*',
 						dest: 'scripts/views'
 					},
 					{
-						src: 'app/scripts/app.js',
+						src: '<%= app.dev %>/scripts/app.js',
 						dest: 'scripts/app.js'
 					},
 					{
-						src: 'app/scripts/boilerplate.js',
+						src: '<%= app.dev %>/scripts/boilerplate.js',
 						dest: 'scripts/boilerplate.js'
 					},
 					{
-						src: 'app/scripts/router.js',
+						src: '<%= app.dev %>/scripts/router.js',
 						dest: 'scripts/router.js'
 					},
 					{
-						src: 'app/scripts/main.js',
+						src: '<%= app.dev %>/scripts/main.js',
 						dest: 'scripts/main.js'
 					},
 					{
-						src: 'app/index.html',
+						src: '<%= app.dev %>/index.html',
 						dest: 'index.html'
 					},
 					{
-						src: 'app/styles/*.css',
+						src: '<%= app.dev %>/styles/*.css',
 						dest: 'styles'
 					}
 
 				]
 			}
-		}	
+		}
 	});
 
-	grunt.registerTask('server', ['open:dev','connect']);
+	grunt.registerTask('server', ['connect:livereload','open:dev','watch']);
 	grunt.registerTask('test', ['jshint','mocha:dev']);
-	grunt.registerTask('deploy', ['s3'])
+	grunt.registerTask('deploy', ['s3']);
 
 	grunt.loadNpmTasks('grunt-open');
 	grunt.loadNpmTasks('grunt-s3');

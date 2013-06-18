@@ -25,8 +25,8 @@ To upload your assets to an Amazon S3 bucket you'll need to pass your credential
 There are a few Grunt tasks ready to go:
 
 * `grunt test` will run [JS Hint](http://www.jshint.com) on your JavaScript files then run the Mocha tests in the `test-boilerplate.js` file.
-* `grunt server` will a connect server on `9000` and open the URL in your favorite browser. The unit tests are at `http://localhost:9000/testrunner.html`
-* `grunt deploy` uploads your static assets to an Amazon S3 bucket
+* `grunt server` will a connect server on `9000` and open the URL in your favorite browser and reload the page on changes.
+* `grunt deploy` will upload your static assets to an Amazon S3 bucket.
 
 ## TODO
 * Build process (`r.js`, minification)
