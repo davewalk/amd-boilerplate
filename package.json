@@ -4,7 +4,7 @@
   "description": "An AMD boilerplate for JavaScript web applications with tests, dependency management and a build process",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "grunt loadhook"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "grunt-lib-phantomjs": "~0.3.1",
     "grunt-mocha": "~0.3.4",
     "grunt-s3": "~0.2.0-alpha.2",
-    "connect-livereload": "~0.2.0"
+    "connect-livereload": "~0.2.0",
+    "grunt-contrib-clean": "~0.4.1"
   }
 }

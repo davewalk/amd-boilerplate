@@ -61,6 +61,14 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+		clean: {
+			hooks: ['.git/hooks/pre-commit']
+		},
+		shell: {
+			hooks: {
+				command: 'cp git-hooks/pre-commit .git/hooks/'
+			}
+		},
 		s3: {
 			options: {
 				key: '<%= aws.key %>',
@@ -120,6 +128,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('test', ['jshint','mocha:dev']);
 	grunt.registerTask('deploy', ['s3']);
 
+	grunt.registerTask('loadhook', ['clean:hooks', 'shell:hooks']);
+
 	grunt.loadNpmTasks('grunt-open');
 	grunt.loadNpmTasks('grunt-s3');
 	grunt.loadNpmTasks('grunt-shell');
@@ -127,4 +137,6 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-shell');
 };
