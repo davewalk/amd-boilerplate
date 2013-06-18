@@ -118,7 +118,6 @@ module.exports = function (grunt) {
 						src: '<%= app.dev %>/styles/*.css',
 						dest: 'styles'
 					}
-
 				]
 			}
 		}
@@ -127,7 +126,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('server', ['connect:livereload','open:dev','watch']);
 	grunt.registerTask('test', ['jshint','mocha:dev']);
 	grunt.registerTask('deploy', ['s3']);
-
 	grunt.registerTask('loadhook', ['clean:hooks', 'shell:hooks']);
 
 	grunt.loadNpmTasks('grunt-open');

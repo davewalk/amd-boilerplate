@@ -27,6 +27,7 @@ There are a few Grunt tasks ready to go:
 * `grunt test` will run [JS Hint](http://www.jshint.com) on your JavaScript files then run the Mocha tests in the `test-boilerplate.js` file.
 * `grunt server` will a connect server on `9000` and open the URL in your favorite browser and reload the page on changes.
 * `grunt deploy` will upload your static assets to an Amazon S3 bucket.
+* `grunt loadhook` will load a Git pre-commit hook that runs `grunt test` before commiting
 
 ## TODO
 * Build process (`r.js`, minification)
