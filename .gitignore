@@ -2,3 +2,4 @@ app/scripts/vendor
 node_modules
 aws.json
 *.sublime*
+.sass-cache

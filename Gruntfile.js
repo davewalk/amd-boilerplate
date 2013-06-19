@@ -33,6 +33,10 @@ module.exports = function (grunt) {
             }
 		},
 		watch: {
+			compass: {
+				files: ['<%= app.dev %>/styles/*.{scss,sass}'],
+				tasks: ['compass']
+			},
 			livereload: {
 				options: {
 					livereload: 35729
@@ -67,6 +71,17 @@ module.exports = function (grunt) {
 		shell: {
 			hooks: {
 				command: 'chmod +x git-hooks/pre-commit; cp git-hooks/pre-commit .git/hooks/'
+			}
+		},
+		compass: {
+			dev: {
+				options: {
+				cssDir: '<%= app.dev %>/styles',
+				sassDir: '<%= app.dev %>/styles',
+				imagesDir: '<%= app.dev %>/images',
+				javascriptsDir: '<%= app.dev %>/scripts',
+				force: true
+				}
 			}
 		},
 		s3: {
@@ -137,4 +152,5 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('grunt-contrib-compass');
 };
