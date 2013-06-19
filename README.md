@@ -29,5 +29,7 @@ There are a few Grunt tasks ready to go:
 * `grunt deploy` will upload your static assets to an Amazon S3 bucket.
 * `grunt loadhook` will load a Git pre-commit hook that runs `grunt test` before commiting
 
+There are some references that helped me learning these things in [the wiki](https://github.com/davewalk/amd-boilerplate/wiki/References). More to come soon.
+
 ## TODO
-* Build process (`r.js`, minification)
+* Build process (`r.js`, minification) - It may make more sense to do this project-by-project since it'll vary so much depending on deployment
