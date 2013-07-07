@@ -1,6 +1,6 @@
 define([
-	'underscore',
 	'jquery',
+	'underscore',
 	'backbone',
 	'router' // router.js
 	], function ($, _, Backbone, router) {
